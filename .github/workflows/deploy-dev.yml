@@ -26,9 +26,9 @@ jobs:
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.AWS_DEV_IP }}
+        port: ${{ secrets.AWS_PORT }}
         username: ${{ secrets.AWS_USER_NAME }}
         key: ${{ secrets.AWS_KEY }}
-        port: 22
         script: |
           echo "AWS 연결"
           docker pull ${{ secrets.DOCKER_USER_NAME }}/${{ secrets.DOCKER_IMAGE_NAME }}:dev
