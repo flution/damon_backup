@@ -6,26 +6,6 @@ import KakaoLoginButton from './Components/LoginComponent/KakaoLoginButton';
 
 axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 
-// Header 컴포넌트
-function Header() {
-  return (
-    <header className="App-header">
-      <h1>DAMON</h1>
-      <p>지금 사용하는 아이디로<br /> 다른 서비스에 가입하실 수 있습니다.</p>
-    </header>
-  );
-}
-
-// SocialLoginButtons 컴포넌트
-function SocialLoginButtons() {
-  return (
-    <div className="Social-login">
-      <KakaoLoginButton />
-      <NaverLoginButton />
-    </div>
-  );
-}
-
 function App() {
   const [currentTime, setCurrentTime] = useState('');
 
@@ -41,15 +21,22 @@ function App() {
       });
   }, []); // 빈 배열을 전달하여 컴포넌트가 처음 마운트될 때만 실행
 
+// SocialLoginButtons 컴포넌트
+function SocialLoginButtons() {
   return (
+    <div>
     <div className="App">
-      <Header />
-      <div className="Current-time">
-        <p>{currentTime}</p>
-      </div>
-      <SocialLoginButtons />
+      <h1>현재 시간</h1>
+      <p>{currentTime}</p>
+    </div>
+    <div className="Social-login">
+      <KakaoLoginButton />
+      <NaverLoginButton />
+    </div>
     </div>
   );
+}
+
 }
 
 export default App;
