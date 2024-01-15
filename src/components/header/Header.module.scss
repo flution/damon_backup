@@ -1,0 +1,164 @@
+.header {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid rgb(220, 225, 230);
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  height: 64px;
+  padding: 0px 20px;
+}
+
+.header_logo {
+  margin-right: 60px;
+  line-height: 0;
+  color: black;
+}
+
+.logo {
+  width: 160px;
+}
+
+.header__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  flex: 1 0 0px;
+}
+
+.header__nav {
+  display: flex;
+}
+
+.header__menu {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  margin-left: 10px;
+  border-bottom: 0px;
+  height: 64px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 150%;
+  list-style: none;
+  color: rgb(15, 19, 23);
+
+  &:hover {
+    cursor: pointer;
+    transition-duration: 0.2s;
+    border-bottom: 3px solid #5376C6;
+    transition: 0.2s all ease;
+    font-weight: 700;
+    $select : true !global;
+  }
+  &:hover + .nav__background {
+    display: block;
+  }
+}
+
+.header__menu2 {
+  @extend .header__menu;
+  &:hover {
+    cursor: default;
+  }
+}
+
+.header__logout {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 150%;
+  // transition: color 0.2s esae-out 0s;
+}
+
+.gnb {
+  display: flex;
+  text-align: right;
+  flex-direction: row;
+
+  a {
+    color: black;
+  }
+}
+
+.sub {
+  display: none;
+}
+
+.subVisible {
+  position: absolute;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  float: left;
+  align-items: center;
+  padding: 0;
+  z-index: 100;
+  margin-top: 30px;
+
+  a {
+    display: inline-block;
+    list-style: none;
+    font-weight: 400;
+    padding: 5px;
+    margin-top: 20px;
+
+
+    &:hover {
+      cursor: pointer;
+      transition-duration: 0.2s;
+      transition: 0.2s all ease;
+      color: #5376C6;
+    }
+  }
+}
+
+.nav__background {
+  position: absolute;
+  width: 100%;
+  height: 150px;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin-top: 64.5px;
+  z-index: 3;
+  display: none;
+}
+
+.nav__backgroundVisible {
+  position: absolute;
+  width: 100%;
+  height: 150px;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin-top: 64.5px;
+  z-index: 3;
+  display: block;
+}
+
+.nav__background, .nav__backgroundVisible {
+  transition: height 0.1s ease-in-out;
+  height: 0; // Start with no height
+  overflow: hidden; // Prevent content from spilling out
+  display: block; // Keep the element in the layout
+
+  // Additional styles for positioning, width, etc., as needed
+}
+
+.nav__backgroundVisible {
+  height: 160px; // Adjust to desired height when expanded
+  // or use 'auto' if you want it to adjust to the content's height
+}
+
+.sub, .subVisible {
+  transition: height 0.9s ease-in-out;
+  height: 0; // Start with no height
+  overflow: hidden;
+  
+}
+
+.subVisible {
+  height: 160px;
+}
