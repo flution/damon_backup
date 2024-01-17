@@ -29,4 +29,4 @@ jobs:
         script: |
           echo "AWS 연결"
           docker pull ${{ secrets.DOCKER_USER_NAME }}/${{ secrets.DOCKER_IMAGE_NAME }}-fe-prod
-          docker-compose -f docker-compose.prod.yml up -d
+          docker-compose up -d
