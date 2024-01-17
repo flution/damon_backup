@@ -1,0 +1,21 @@
+.container {
+  position: absolute;
+  min-width: 300px;
+  width: 30%;
+  height: 100vh;
+  background-color: white;
+  z-index: 10;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  padding: 10px 20px;
+
+  input {
+    padding: 11px 19px;
+    border: #e6eef5 solid 2px;
+    border-radius: 5px;
+    background-color: #fbfbfb;
+    color: #263747;
+    width: 300px;
+  }
+}
