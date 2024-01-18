@@ -1,42 +1,65 @@
 import React, { useEffect, useState } from 'react';
 import styles from './Header.module.scss';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil';
 import { headerState } from '../../states/header/headerState';
 import "react-datepicker/dist/react-datepicker.module.css"
+import { calendarInfoState, showCreateState } from '../../states/calendar/calendarInfoState';
+import * as calendarService from '../../apis/services/calendarService';
 
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [headerSettings, setHeaderSettings] = useRecoilState(headerState);
-  const { showDefalut, showFeatures,showCreate } = headerSettings;
+  const { showDefalut, showFeatures } = headerSettings;
   const [isHovered, setIsHovered] = useState(false);
+  const [showCreate, setShowCreate] = useRecoilState(showCreateState);
+  const resetCalender = useResetRecoilState(calendarInfoState);
+  const calenderInfo = useRecoilValue(calendarInfoState);
+
+
+  const handleCancel = () => {
+    setShowCreate(false);
+    resetCalender();
+    navigate('/main');
+    setIsHovered(false);
+  }
 
   // 페이지 이동을 위한 함수
   const navigateTo = (path) => () => {
-    if(path === '/main') {
-      setIsHovered(false);
-    }
     navigate(path);
   };
 
-    // 현재 경로에 따라 헤더 상태 업데이트
-    useEffect(() => {
-      if (location.pathname.includes('/register')) {
-        if(location.pathname.includes('/step2')) {
-          setHeaderSettings({ showDefalut: false, showFeatures: true, showCreate:true });
-        } else {
-          setHeaderSettings({ showDefalut: false, showFeatures: true, showCreate:false });
-        }
+  // 현재 경로에 따라 헤더 상태 업데이트
+  useEffect(() => {
+    if (location.pathname.includes('/register')) {
+      setHeaderSettings({ showDefalut: false, showFeatures: true });
+
+    } else {
+      setHeaderSettings({ showDefalut: true, showFeatures: false });
+    }
+  }, [location, setHeaderSettings]);
+
+  const handleSubmit = async () => {
+    try {
+      const response = await calendarService.createCalendar(calenderInfo);
+      if (response.success) {
+        alert("일정 등록되었습니다.")
+        //상세일정 페이지로 이동해야함.
       } else {
-        setHeaderSettings({ showDefalut: true, showFeatures: false });
+        console.error(response.error);
       }
-    }, [location, setHeaderSettings]);
+    }
+    catch (error) {
+      console.error(error);
+    }
+  }
+
 
   return (
     <section className={styles.header}>
       <div className={styles.header__container}>
-        <div className={styles.header_logo} onClick={navigateTo('/main')}>
+        <div className={styles.header_logo} onClick={handleCancel}>
           DAMON
         </div>
         {showDefalut &&
@@ -68,8 +91,8 @@ const Header = () => {
         }
         {showFeatures &&
           <div className={styles.header__btns}>
-            <button className={styles.cancel_btn} onClick={navigateTo('/main')}>취소</button>
-            {showCreate && <button className={styles.confirm_btn}>등록</button>}
+            <button className={styles.cancel_btn} onClick={handleCancel}>취소</button>
+            {showCreate && <button className={styles.confirm_btn} onClick={handleSubmit}>등록</button>}
           </div>
         }
 

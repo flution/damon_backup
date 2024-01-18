@@ -11,13 +11,13 @@ export const calendarInfoState = atom({
     endDate: "",
     area: "",
     travels: [
-      {
-        locationName: "",
-        latitude: "",
-        longitude: 0,
-        orderNum: 0,
-        memo: "",
-      }
+      // {
+      //   locationName: "",
+      //   latitude: "",
+      //   longitude: 0,
+      //   orderNum: 0,
+      //   memo: "",
+      // }
     ]
   },
   effects_UNSTABLE: [persistAtom],
@@ -52,8 +52,13 @@ export const computeDateState = selector({
   effects_UNSTABLE: [persistAtom],
 });
 
-// export const clickedDate = atom({
-//   key: "clickedDate",
-//   default: [],
-//   effects_UNSTABLE: [persistAtom],
-// })
+export const clickedDateState = atom({
+  key: "clickedDate",
+  default: 1,
+  effects_UNSTABLE: [persistAtom],
+})
+export const showCreateState = atom({
+  key: "showCreate",
+  default: false,
+  effects_UNSTABLE: [persistAtom],
+})

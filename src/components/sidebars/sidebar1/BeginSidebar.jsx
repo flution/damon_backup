@@ -3,7 +3,7 @@ import styles from './BeginSidebar.module.scss'
 import Select from "react-select";
 import DatePicker from "react-datepicker";
 import { useRecoilState } from 'recoil';
-import { calendarInfoState } from '../../../states/calendar/calendarInfoState';
+import { calendarInfoState, showCreateState } from '../../../states/calendar/calendarInfoState';
 import { useNavigate } from 'react-router-dom';
 
 const areas = [
@@ -25,20 +25,19 @@ const BeginSidebar = ({ onSwitch }) => {
   const [numberDay, setNumberDay] = useState(0);
 
   const [calenderInfo, setCalenderInfo] = useRecoilState(calendarInfoState);
+  const [showCreate, setShowCreate] = useRecoilState(showCreateState);
+
 
   const navigate = useNavigate();
 
-  const handleConfirmAndSwitch = () => {
-    handleConfirm();
-    navigate('/register/calender/step2')
-  };
+  // const handleConfirmAndSwitch = () => {
+  //   handleConfirm();
+  //   navigate('/register/calender/step2')
+  // };
 
 
 
   const handleConfirm = () => {
-
-    // const formatStart = startDate.toISOString().slice(0, 10);
-    // const formatEnd = endDate.toISOString().slice(0, 10);
 
     setCalenderInfo((prev) => ({
       ...prev,
@@ -47,6 +46,8 @@ const BeginSidebar = ({ onSwitch }) => {
       endDate: endDate.toLocaleDateString(),
       area: area.value,
     }));
+
+    setShowCreate(!showCreate);
   }
 
   return (
@@ -87,7 +88,7 @@ const BeginSidebar = ({ onSwitch }) => {
           </div>
         </div>
         <div className={styles.btn}>
-          <button className={styles.write_btn} onClick={handleConfirmAndSwitch}
+          <button className={styles.write_btn} onClick={handleConfirm}
             disabled={!title || !area || !startDate || !endDate}
           >
             상세 일정 등록
