@@ -23,7 +23,11 @@ const Header = () => {
     // 현재 경로에 따라 헤더 상태 업데이트
     useEffect(() => {
       if (location.pathname.includes('/register')) {
-        setHeaderSettings({ showDefalut: false, showFeatures: true });
+        if(location.pathname.includes('/step2')) {
+          setHeaderSettings({ showDefalut: false, showFeatures: true, showCreate:true });
+        } else {
+          setHeaderSettings({ showDefalut: false, showFeatures: true, showCreate:false });
+        }
       } else {
         setHeaderSettings({ showDefalut: true, showFeatures: false });
       }
@@ -64,7 +68,7 @@ const Header = () => {
         }
         {showFeatures &&
           <div className={styles.header__btns}>
-            <button className={styles.cancel_btn}>취소</button>
+            <button className={styles.cancel_btn} onClick={navigateTo('/main')}>취소</button>
             {showCreate && <button className={styles.confirm_btn}>등록</button>}
           </div>
         }

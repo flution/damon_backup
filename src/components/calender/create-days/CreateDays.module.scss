@@ -1,0 +1,18 @@
+.container {
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  color: #5376C6;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid rgb(238, 238, 238);
+  border-radius: 8px;
+}
+
+.selec__container {
+  @extend .container;
+  background-color: #5376C6;
+  color: white;
+}

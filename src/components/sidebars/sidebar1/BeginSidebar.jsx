@@ -4,6 +4,7 @@ import Select from "react-select";
 import DatePicker from "react-datepicker";
 import { useRecoilState } from 'recoil';
 import { calendarInfoState } from '../../../states/calendar/calendarInfoState';
+import { useNavigate } from 'react-router-dom';
 
 const areas = [
   { value: '가평', label: "가평" },
@@ -25,18 +26,26 @@ const BeginSidebar = ({ onSwitch }) => {
 
   const [calenderInfo, setCalenderInfo] = useRecoilState(calendarInfoState);
 
+  const navigate = useNavigate();
+
   const handleConfirmAndSwitch = () => {
     handleConfirm();
-    onSwitch();
+    navigate('/register/calender/step2')
   };
 
+
+
   const handleConfirm = () => {
+
+    // const formatStart = startDate.toISOString().slice(0, 10);
+    // const formatEnd = endDate.toISOString().slice(0, 10);
+
     setCalenderInfo((prev) => ({
       ...prev,
       title: title,
-      startDate: startDate,
-      endDate: endDate,
-      area: area,
+      startDate: startDate.toLocaleDateString(),
+      endDate: endDate.toLocaleDateString(),
+      area: area.value,
     }));
   }
 

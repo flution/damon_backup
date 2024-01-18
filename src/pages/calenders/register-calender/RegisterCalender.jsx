@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import BeginSidebar from '../../../components/sidebars/sidebar1/BeginSidebar';
-import Select from "react-select";
-import DatePicker from "react-datepicker";
-import { useNavigate } from 'react-router-dom';
 import CreateSidebar from '../../../components/sidebars/sidebar2/CreateSidebar';
 import { useRecoilState } from 'recoil';
-import { activeSidebarState } from '../../../states/sidebar/sidebarState';
 import { headerState } from '../../../states/header/headerState';
 
 
@@ -56,7 +52,8 @@ const RegisterCalender = () => {
 
   return (
     <div>
-      {!showCreate ? <BeginSidebar onSwitch={switchSidebar} /> : <CreateSidebar />}
+      {/* {!showCreate ? <BeginSidebar onSwitch={switchSidebar} /> : <CreateSidebar />} */}
+      <BeginSidebar />
       <div id="map" style={{
         // width: '1000px',
         height: '100vh'
