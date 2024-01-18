@@ -20,7 +20,7 @@ const regions = [
   { value: '제주', label: "제주" },
 ];
 
-const RegisterCalender = () => {
+const RegisterCalendar = () => {
 
   const [title, setTitle] = useState("");
   const [startDate, setStartDate] = useState("");
@@ -109,4 +109,4 @@ const RegisterCalender = () => {
   )
 }
 
-export default RegisterCalender
+export default RegisterCalendar

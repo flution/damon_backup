@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styles from './CreateSidebar.module.scss'
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { calendarInfoState, clickedDateState, computeDateState } from '../../../states/calendar/calendarInfoState';
-import CreateDays from '../../calender/create-days/CreateDays';
+import CreateDays from './../../calendar/create-days/CreateDays';
 
 const CreateSidebar = ({ setSearchPlace, places,showModal,setModalOpen,setPlaceInfo,placeInfo }) => {
 
