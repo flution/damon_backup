@@ -9,10 +9,15 @@
   justify-content: center;
   border: 1px solid rgb(238, 238, 238);
   border-radius: 8px;
+
+}
+.btnActive {
+  color:white;
+  background-color: #5376C6;
 }
 
-.selec__container {
-  @extend .container;
-  background-color: #5376C6;
-  color: white;
-}
+// .selec__container {
+//   @extend .container;
+//   background-color: #5376C6;
+//   color: white;
+// }
