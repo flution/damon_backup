@@ -2,6 +2,9 @@
   display: flex;
   justify-content: center;
   border-bottom: 1px solid rgb(220, 225, 230);
+  z-index: 1000;
+  top: 0;
+  background-color: white;
 }
 
 .header__container {
@@ -18,6 +21,7 @@
   margin-right: 60px;
   line-height: 0;
   color: black;
+  cursor: pointer;
 }
 
 .logo {
@@ -101,7 +105,7 @@
   z-index: 100;
   margin-top: 30px;
 
-  a {
+  li {
     display: inline-block;
     list-style: none;
     font-weight: 400;
@@ -161,4 +165,15 @@
 
 .subVisible {
   height: 160px;
+}
+
+.header__btns {
+  display: flex;
+  gap: 10px;
+
+  button {
+    padding: 5px 20px;
+    border-radius: 5px;
+    
+  }
 }
