@@ -8,7 +8,6 @@ export const headerState = atom({
   default: {
     showDefalut: true,
     showFeatures: false,
-    showCreate: false,
   },
   effects_UNSTABLE: [persistAtom],
 });
