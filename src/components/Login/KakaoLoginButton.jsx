@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/LoginButton.css'; // 위에서 작성한 CSS 파일 import
+import './LoginButton.scss'; // 위에서 작성한 CSS 파일 import
 import kakaoLogo from '../../assets/kakao_Logo_black.png';
 
 function KakaoLoginButton() {
