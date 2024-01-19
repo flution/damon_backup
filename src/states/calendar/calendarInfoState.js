@@ -10,15 +10,7 @@ export const calendarInfoState = atom({
     startDate: "",
     endDate: "",
     area: "",
-    travels: [
-      // {
-      //   locationName: "",
-      //   latitude: "",
-      //   longitude: 0,
-      //   orderNum: 0,
-      //   memo: "",
-      // }
-    ]
+    travels: []
   },
   effects_UNSTABLE: [persistAtom],
 })
@@ -51,6 +43,19 @@ export const computeDateState = selector({
   },
   effects_UNSTABLE: [persistAtom],
 });
+
+
+export const filteredTravelsSelector = selector({
+  key: "filteredTravels",
+  get: ({ get }) => {
+    const calendarInfo = get(calendarInfoState);
+    const clickedDate = get(clickedDateState);
+
+    // calendarInfo.travels에서 orderNum이 clickedDate와 일치하는 항목들을 필터링
+    return calendarInfo.travels.filter(travel => travel.orderNum === clickedDate);
+  }
+});
+
 
 export const clickedDateState = atom({
   key: "clickedDate",

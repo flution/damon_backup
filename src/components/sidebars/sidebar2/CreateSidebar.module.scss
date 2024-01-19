@@ -1,7 +1,6 @@
 .container {
   position: absolute;
   min-width: 300px;
-  width: 35%;
   height: 100vh;
   background-color: white;
   z-index: 10;
@@ -54,7 +53,7 @@
   flex-direction: column;
 }
 
-.place__conatiner {
+.place__container {
   border: 1px solid #d8d8d8;
   border-radius: 8px;
 }
