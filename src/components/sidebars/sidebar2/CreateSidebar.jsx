@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import styles from './CreateSidebar.module.scss'
 import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { calendarInfoState, clickedDateState, computeDateState } from '../../../states/calendar/calendarInfoState';
-import CreateDays from '../../calender/create-days/CreateDays';
+import { calendarInfoState, clickedDateState, computeDateState, filteredTravelsSelector } from '../../../states/calendar/calendarInfoState';
+import CreateDays from './../../calendar/create-days/CreateDays';
+import ShowCalendar from '../../calendar/show-calendar/ShowCalendar';
 
-const CreateSidebar = ({ setSearchPlace, places,showModal,setModalOpen,setPlaceInfo,placeInfo }) => {
+const CreateSidebar = ({ setSearchPlace, places, showModal, setModalOpen, setPlaceInfo, placeInfo }) => {
 
   const setCalenderInfo = useSetRecoilState(calendarInfoState);
   const calenderInfo = useRecoilValue(calendarInfoState);
@@ -16,6 +17,9 @@ const CreateSidebar = ({ setSearchPlace, places,showModal,setModalOpen,setPlaceI
   // 일정 추가,일정보기 상태 변수
   const [isAddButtonClicked, setIsAddButtonClicked] = useState(true);
   const [isViewButtonClicked, setIsViewButtonClicked] = useState(false);
+  const [calendars, setCalendars] = useState([]);
+
+  const filteredTravels = useRecoilValue(filteredTravelsSelector);
 
   const onChange = (e) => {
     setInputText(e.target.value);
@@ -40,14 +44,16 @@ const CreateSidebar = ({ setSearchPlace, places,showModal,setModalOpen,setPlaceI
   };
 
   const handleModal = (item) => {
-    setPlaceInfo({...placeInfo, 
-      locationName:item.place_name,
+    setPlaceInfo({
+      ...placeInfo,
+      locationName: item.place_name,
       latitude: item.x,
-      longitude:item.y,
+      longitude: item.y,
       orderNum: clickedDate,
     })
     showModal();
   }
+
 
   // 버튼 스타일을 결정하는 함수
   const addButtonStyle = isAddButtonClicked ? { color: '#5376C6' } : {};
@@ -88,9 +94,9 @@ const CreateSidebar = ({ setSearchPlace, places,showModal,setModalOpen,setPlaceI
             <div id="result-list"
             >
               {places.map((item, i) => (
-                <div key={i} 
-                  onClick={(e)=>handleModal(item,e)}
-                  className={styles.place__conatiner}
+                <div key={i}
+                  onClick={(e) => handleModal(item, e)}
+                  className={styles.place__container}
                 >
                   <div>
                     <p>{item.place_name}</p>
@@ -108,8 +114,15 @@ const CreateSidebar = ({ setSearchPlace, places,showModal,setModalOpen,setPlaceI
               ))}
             </div>
           </div> :
-          <div>
-
+          <div className={styles.Calendar__Container}>
+            {filteredTravels.map((calendar, index) => {
+              return <ShowCalendar key={calendar.latitude} calendar={calendar} />
+            })}
+            {filteredTravels.length == 0 &&
+              <div>
+                <p>알정이 없습니다.\n 추가해 보세요.</p>
+              </div>
+            }
           </div>
         }
 

@@ -61,13 +61,15 @@
     font-weight: 700;
     $select : true !global;
   }
-  &:hover + .nav__background {
+
+  &:hover+.nav__background {
     display: block;
   }
 }
 
 .header__menu2 {
   @extend .header__menu;
+
   &:hover {
     cursor: default;
   }
@@ -142,7 +144,8 @@
   display: block;
 }
 
-.nav__background, .nav__backgroundVisible {
+.nav__background,
+.nav__backgroundVisible {
   transition: height 0.1s ease-in-out;
   height: 0; // Start with no height
   overflow: hidden; // Prevent content from spilling out
@@ -156,11 +159,12 @@
   // or use 'auto' if you want it to adjust to the content's height
 }
 
-.sub, .subVisible {
+.sub,
+.subVisible {
   transition: height 0.9s ease-in-out;
   height: 0; // Start with no height
   overflow: hidden;
-  
+
 }
 
 .subVisible {
@@ -174,6 +178,26 @@
   button {
     padding: 5px 20px;
     border-radius: 5px;
-    
+
   }
+}
+
+.btn {
+  border: none;
+  padding: 20px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.cancel_btn {
+  @extend .btn;
+  background-color: #AEAEAE;
+  color: white;
+}
+
+.confirm_btn {
+  @extend .btn;
+  background-color: #7298C2;
+  color: white;
 }

@@ -3,7 +3,8 @@ import axios from 'axios';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import Main from './pages/main/Main';
-import RegisterCalender from './pages/calenders/register-calender/RegisterCalender';
+import RegisterCalendar from './pages/calendars/register-calendar/RegisterCalendar';
+
 
 function App() {
   return (
@@ -13,8 +14,8 @@ function App() {
       <Route path='/' element={<Layout />}>
         <Route path='main' element={<Main />} />
         {/* <Route path='review/:id' element={<Review />} /> */}
-        <Route path='register/calender' element={<RegisterCalender />} />
-
+        <Route path='register/calender' element={<RegisterCalendar />} />
+          
         {/* <Route path='view/myschedule' element={<MySchedule />} /> */}
       </Route>
     </Routes>
