@@ -1,50 +1,49 @@
-/* 공통 변수 설정 */
-$font-stack: 'NanumGothic', sans-serif;
-$font-size: 16px;
-$font-weight-bold: bold;
-$button-width: 250px;
-$button-padding: 12px 4px;
-$button-border-radius: 4px;
-$button-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24);
-$button-margin-bottom: 10px;
+.App {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    background: #FFFFFF;
 
-/* 공통 버튼 스타일 */
-.social-login-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: $button-padding;
-  border: none;
-  border-radius: $button-border-radius;
-  font-family: $font-stack;
-  font-size: $font-size;
-  font-weight: $font-weight-bold;
-  cursor: pointer;
-  box-shadow: $button-box-shadow;
-  width: $button-width;
-  text-align: center;
-  box-sizing: border-box;
-  margin-bottom: $button-margin-bottom;
+    .social-login-button {
+      position: absolute;
+      top: 500px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  
+      .kakao-login-button {
+        margin: 10px;
+        padding: 10px;
+        width: 200px;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: #FEE500;
+        // 로그인 버튼 고유의 스타일을 추가할 수 있습니다. 예:
 
-  &.naver-login-button {
-    background-color: #00c73c;
-    color: white;
+        .naver-login-button {
+          margin: 10px;
+          padding: 10px;
+          width: 200px;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          background-color: #2DB400;
 
-    .button-logo {
-      width: 24px;
-      height: 24px;
-      margin-right: 15px;
-    }
-  }
+          .button-logo {
+            width: 24px; // 로고의 너비 조정
+            height: 24px; // 로고의 높이 조정
+            object-fit: contain; // 이미지 비율을 유지하면서 박스 안에 맞도록 조정
+          }
 
-  &.kakao-login-button {
-    background-color: #FEE500;
-    color: #3C1E1E;
-
-    .button-logo {
-      width: 20px;
-      height: 20px;
-      margin-right: 15px;
+        
+      }
     }
   }
 }

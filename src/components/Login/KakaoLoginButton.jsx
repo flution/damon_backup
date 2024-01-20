@@ -9,7 +9,7 @@ function KakaoLoginButton() {
   };
 
   return (
-    <button className="social-login-button kakao-login-button">
+    <button className="social-login-button kakao-login-button" onClick={handleLogin} >
       <img src={kakaoLogo} alt="Logo" className="button-logo" />
       카카오로 시작하기
     </button>

@@ -3,19 +3,26 @@ import axios from 'axios';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import Main from './pages/main/Main';
+import RegisterCalendar from './pages/calendars/register-calendar/RegisterCalendar';
+import Login from './pages/login/Login'
+
 
 function App() {
   return (
     <Routes>
-      {/* <Route path='/' element={<Login />} /> */}
+      <Route path='/' element={<Login />} />
+
       <Route path='/' element={<Layout />}>
         <Route path='main' element={<Main />} />
-        <Route path='review/:id' element={<Review />} />
-        {/* {/* <Route path='register/schedule' element={<RegisterSchedule />} /> */}
-        {/* <Route path='view/myschedule' element={<MySchedule />} /> */} */}
+        {/* <Route path='review/:id' element={<Review />} /> */}
+        <Route path='register/calender' element={<RegisterCalendar />} />
+          
+        {/* <Route path='view/myschedule' element={<MySchedule />} /> */}
       </Route>
     </Routes>
   );
 }
 
 export default App;
+
+

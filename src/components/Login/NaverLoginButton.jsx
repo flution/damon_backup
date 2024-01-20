@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/LoginButton.css'; // 위에서 작성한 CSS를 import
+import './LoginButton.scss'; // 위에서 작성한 CSS를 import
 import naverLogo from '../../assets/naver_logo.png';
 
 function NaverLoginButton() {
@@ -9,7 +9,7 @@ function NaverLoginButton() {
   };
 
   return (
-    <button className="social-login-button naver-login-button">
+    <button className="social-login-button naver-login-button" onClick={handleLogin}>
       <img src={naverLogo} alt="Logo" className="button-logo" />
       네이버로 시작하기
     </button>
