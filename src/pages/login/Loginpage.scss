@@ -12,7 +12,7 @@
       width: 155px;
       height: 51px;
       left: 50%;
-      top: 310px;
+      top: 210px; // 상단 여백 줄임
       transform: translateX(-50%);
       font-family: 'NanumGothic', sans-serif;
       font-weight: 700;
@@ -28,7 +28,7 @@
       width: 228px;
       height: 46px;
       left: 50%;
-      top: 400px;
+      top: 300px; // 상단 여백 줄임
       transform: translateX(-50%);
       font-family: 'NanumGothic', sans-serif;
       font-weight: 700;
@@ -42,7 +42,7 @@
 
   .Social-login {
     position: absolute;
-    top: 500px;
+    top: 390px; // 상단 여백 줄임
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -59,13 +59,11 @@
       cursor: pointer;
 
       &.naver {
-        background-color: #2DB400;
-        // 네이버 버튼 스타일 추가
+        background-color: #03C75A;
       }
 
       &.kakao {
-        background-color: #FEE500;
-        // 카카오 버튼 스타일 추가
+        background-color: #FDDC3F;
       }
     }
   }
