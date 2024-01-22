@@ -5,7 +5,7 @@ import Layout from './components/layout/Layout';
 import Main from './pages/main/Main';
 import RegisterCalendar from './pages/calendars/register-calendar/RegisterCalendar';
 import Login from './pages/login/Login'
-import Review from './pages/review/Reviewpage';
+import Review from './pages/review/review';
 
 
 function App() {

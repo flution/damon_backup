@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Loginpage.scss';
-import NaverLoginButton from '../../components/Login/NaverLoginButton';
-import KakaoLoginButton from '../../components/Login/KakaoLoginButton';
+import NaverLoginButton from '../../components/login/NaverLoginButton';
+import KakaoLoginButton from '../../components/login/KakaoLoginButton';
 
 axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 
