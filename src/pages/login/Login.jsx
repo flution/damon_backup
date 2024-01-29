@@ -11,11 +11,10 @@ function Login() {
   const navigate = useNavigate();
   const [currentTime, setCurrentTime] = useState('');
 
-  // 인증 코드 처리 및 백엔드로 전송하는 로직
   useEffect(() => {
+
     const code = new URL(window.location.href).searchParams.get('code');
     if (code) {
-      // 백엔드로 인증 코드 전송
       axios.post('/api/auth/social-login', { code })
         .then(response => {
           // 로그인 처리 성공
@@ -24,6 +23,7 @@ function Login() {
         .catch(error => {
           // 로그인 처리 실패
           console.error('로그인 처리 중 오류 발생', error);
+          // 에러 처리 로직 추가 가능
         });
     }
 
@@ -35,6 +35,11 @@ function Login() {
       .catch(error => {
         console.error('API 호출 중 오류 발생:', error);
       });
+
+    return () => {
+      // 컴포넌트 언마운트 시 인터셉터 제거
+      // axios.interceptors.response.eject(responseInterceptor);
+    };
   }, [navigate]);
 
   return (

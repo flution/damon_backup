@@ -4,7 +4,7 @@ import './LoginButton.scss';
 import kakaoLogo from '../../assets/Kakao_Logo.png';
 
 function KakaoLoginButton() {
-  ; // 네비게이션 함수 사용
+  ;
 
   // 버튼 클릭 시 카카오 로그인 페이지로 리다이렉트
   const handleLogin = () => {
