@@ -13,7 +13,7 @@ import NaverRedirectHandler from './components/login/NaverLoginRedirect'
 function App() {
   return (
     <Routes>
-      <Route path='/' element={<Login />} />
+      <Route path='/login' element={<Login />} />
       <Route path='/login/oauth2/code/kakao' element={<KakaoRedirectHandler />} />
       <Route path='/login/oauth2/code/naver' element={<NaverRedirectHandler />} />
 
