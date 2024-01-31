@@ -21,7 +21,7 @@ import {
     Zipcode,
     ZipcodeWrapper,
     Error,
-  } from "./reviewAdd.module.scss";
+  } from "./ReviewAdd.module.scss";
   import {useState} from 'react'
   
   const reviewAdd = () => {
@@ -140,4 +140,4 @@ import {
     );
   }
 
-  export default reviewAdd
+  export default ReviewAdd
