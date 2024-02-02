@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function OAuth2RedirectHandler() {
+function OAuth2RedirectHandlerNaver() {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -21,5 +21,5 @@ function OAuth2RedirectHandler() {
   return <div>로그인 처리 중...</div>;
 }
 
-export default OAuth2RedirectHandler;
+export default OAuth2RedirectHandlerNaver;
 

@@ -21,10 +21,10 @@ import {
     Zipcode,
     ZipcodeWrapper,
     Error,
-  } from "./ReviewAdd.module.scss";
+  } from "./ReviewCreate.module.scss";
   import {useState} from 'react'
   
-  const reviewAdd = () => {
+  const ReviewCreate = () => {
     const [writer, setWriter] = useState("");
     const [password, setPassword] = useState("");
     const [title, setTitle] = useState("");
@@ -140,4 +140,4 @@ import {
     );
   }
 
-  export default ReviewAdd
+  export default ReviewCreate
