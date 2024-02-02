@@ -14,7 +14,6 @@ function NaverLoginRedirectHandler() {
         // 백엔드 서버에 인가 코드와 상태 토큰을 전달하고 JWT 토큰을 요청
         const response = await axios.post('/api/auth/naver/callback', {
           code,
-          state,
         });
 
         // 성공 처리 로직
