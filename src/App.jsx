@@ -5,17 +5,14 @@ import Login from './pages/login/Login'
 import Main from './pages/main/Main';
 import Review from './pages/review/Review';
 import RegisterCalendar from './pages/calendars/register-calendar/RegisterCalendar';
-import KakaoRedirectHandler from './components/login/KakaoLoginRedirect'
-import NaverRedirectHandler from './components/login/NaverLoginRedirect'
-
+import OAuth2RedirectHandler from './components/login/OAuth2RedirectHandler';
 
 
 function App() {
   return (
     <Routes>
       <Route path='/login' element={<Login />} />
-      <Route path='/login/oauth2/code/kakao' element={<KakaoRedirectHandler />} />
-      <Route path='/login/oauth2/code/naver' element={<NaverRedirectHandler />} />
+      <Route path="/oauth2/redirect" element={<OAuth2RedirectHandler />} />
 
       <Route path='/' element={<Layout />}>
         <Route path='main' element={<Main />} />
